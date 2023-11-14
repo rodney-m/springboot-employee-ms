@@ -19,6 +19,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         return eRepository.findAll();
     }
 
+
     @Override
     public Employee saveEmployee(Employee employee) {
         return eRepository.save(employee);
@@ -46,6 +47,21 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public List<Employee> getEmployeesByName(String name) {
         return eRepository.findByName(name);
+    }
+
+    @Override
+    public List<Employee> getEmployeesByNameAndLocation(String name, String location) {
+        return eRepository.findByNameAndLocation(name, location);
+    }
+
+    @Override
+    public List<Employee> getEmployeesByKeyword(String name) {
+        return eRepository.findByNameContaining(name);
+    }
+
+    @Override
+    public List<Employee> getEmployeesByNameOrLocation(String name, String location) {
+        return eRepository.getEmployeesByNameAndLocation(name, location);
     }
 
 
